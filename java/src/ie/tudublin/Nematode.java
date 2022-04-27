@@ -1,7 +1,5 @@
 package ie.tudublin;
 
-import jogamp.graph.font.typecast.ot.table.CffTable.Index;
-import processing.core.PApplet;
 import processing.data.TableRow;
 
 public class Nematode
@@ -76,15 +74,5 @@ public class Nematode
     public void setEyes(String eyes) {
         this.eyes = eyes;
     }
-
-    public void render(NematodeVisualiser pa)
-    {
-        pa.fill(255);
-        pa.textSize(50);
-        pa.textAlign(PApplet.CENTER, PApplet.CENTER);
-        pa.text(name, pa.width / 2, pa.height - (5 * 0.5f));
-
-    }
-
   
 }

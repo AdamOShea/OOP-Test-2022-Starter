@@ -90,12 +90,44 @@ public class NematodeVisualiser extends PApplet
 
 		if (nematodes.get(scroll).limbs == 1)
 		{
-		for (int i = 0; i < circles; i++)
-			{
-				stroke(255);
-				line(360, (height / 5f) + off*i, 330, (height / 5f) + off*i);
-				line(440, (height / 5f) + off*i, 470, (height / 5f) + off*i);
-			}
+			for (int i = 0; i < circles; i++)
+				{
+					stroke(255);
+					line(360, (height / 5f) + off*i, 330, (height / 5f) + off*i);
+					line(440, (height / 5f) + off*i, 470, (height / 5f) + off*i);
+				}
+		}
+
+		if (nematodes.get(scroll).gender.equals("m"))
+		{
+			stroke(255);
+			line(400, 125 + off*circles, 400, 160 + off*circles);
+			circle(400, 170 + off*circles, 20);
+			
+		}
+
+		if (nematodes.get(scroll).gender.equals("f"))
+		{
+			stroke(255);
+			circle(400, 85 + off*circles, 40);
+	
+		}
+
+		if (nematodes.get(scroll).gender.equals("h"))
+		{
+			stroke(255);
+			circle(400, 85 + off*circles, 40);
+			line(400, 125 + off*circles, 400, 160 + off*circles);
+			circle(400, 170 + off*circles, 20);
+		}
+
+		if (nematodes.get(scroll).eyes.equals("1"))
+		{
+			stroke(255);
+			line(365, 160 - (off-15), 380, 160 - (off-40));
+			line(435, 160 - (off-15), 420, 160 - (off-40));
+			circle(355, 165-off, 25);
+			circle(445, 165-off, 25);
 		}
 		
 	}
