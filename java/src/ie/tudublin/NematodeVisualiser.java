@@ -10,11 +10,17 @@ public class NematodeVisualiser extends PApplet
 {
 
 	ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
+	public int scroll = 0;
 
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
 		{
+			if (scroll != 0) scroll--;
+		}		
+		if (keyCode == RIGHT)
+		{
+			scroll++;
 		}		
 	}
 
@@ -28,9 +34,25 @@ public class NematodeVisualiser extends PApplet
 	{
 		colorMode(HSB);
 		background(0);
-		smooth();				
+		smooth();	
+		loadNematodes();			
 	}
+
+	// void printStars()
+    // {
+    //     for(Nematode n:nematodes)
+    //     {
+    //         System.out.println(n);
+    //     }
+    // }
 	
+	// public void drawNemat()
+	// {
+	// 	for (Nematode n:nematodes)
+	// 	{
+	// 		n.render(this);
+	// 	}
+	// }
 
 	public void loadNematodes()
 	{
@@ -41,12 +63,40 @@ public class NematodeVisualiser extends PApplet
 			Nematode nemat = new Nematode(r);
 			nematodes.add(nemat);
 		}
-		
-		
 	}
 
 
 	public void draw()
 	{	
+		int amt = nematodes.size();
+		scroll = scroll % amt;
+		clear();
+		textSize(60);
+		textAlign(CENTER);
+		String Name = nematodes.get(scroll).name;
+		text(Name, 400, 50);
+
+		float off = 75;
+		float circles = nematodes.get(scroll).length;
+
+		for (int i = 0; i < circles; i++)
+		{
+			strokeWeight(5);
+			stroke(255);
+			noFill();
+
+			circle(400, (height / 5f) + off*i, 75);
+		}
+
+		if (nematodes.get(scroll).limbs == 1)
+		{
+		for (int i = 0; i < circles; i++)
+			{
+				stroke(255);
+				line(360, (height / 5f) + off*i, 330, (height / 5f) + off*i);
+				line(440, (height / 5f) + off*i, 470, (height / 5f) + off*i);
+			}
+		}
+		
 	}
 }
