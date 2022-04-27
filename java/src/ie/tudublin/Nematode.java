@@ -11,9 +11,12 @@ public class Nematode
     private String gender;
     private int eyes;
     
+    
+
     @Override
     public String toString() {
-        return "Nematode []";
+        return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
+                + name + "]";
     }
 
     public Nematode(TableRow tr) 
@@ -22,7 +25,7 @@ public class Nematode
             tr.getInt("length"),
             tr.getInt("limbs"),
             tr.getString("gender"),
-            tr.getInt("eyes") == 1);
+            tr.getInt("eyes"));
     }
 
     public Nematode(String name, int length, int limbs, String gender, int eyes) {
