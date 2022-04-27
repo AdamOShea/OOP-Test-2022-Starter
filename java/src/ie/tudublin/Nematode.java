@@ -9,7 +9,7 @@ public class Nematode
     private int length;
     private int limbs;
     private String gender;
-    private boolean eyes;
+    private int eyes;
     
     @Override
     public String toString() {
@@ -19,44 +19,61 @@ public class Nematode
     public Nematode(TableRow tr) 
     {
         this(tr.getString("name"),
-        tr.getInt("length"),
-        tr.getInt("limbs"),
-        tr.getString("gender"),
-        tr.getInt("eyes") == 1);
+            tr.getInt("length"),
+            tr.getInt("limbs"),
+            tr.getString("gender"),
+            tr.getInt("eyes") == 1);
     }
 
-    
+    public Nematode(String name, int length, int limbs, String gender, int eyes) {
+        this.name = name;
+        this.length = length;
+        this.limbs = limbs;
+        this.gender = gender;
+        this.eyes = eyes;
+    }
 
-    private String name;
-
-    public String getName() 
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void getLength()
-    {
+    public int getLength() {
         return length;
     }
 
-    public int getLimbs()
-    {
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getLimbs() {
         return limbs;
     }
 
-    public String getGender()
-    {
+    public void setLimbs(int limbs) {
+        this.limbs = limbs;
+    }
+
+    public String getGender() {
         return gender;
     }
 
-    public void getEyes()
-    {
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getEyes() {
         return eyes;
     }
-    
+
+    public void setEyes(int eyes) {
+        this.eyes = eyes;
+    }
+
+
+
+  
 }
