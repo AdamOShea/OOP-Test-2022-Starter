@@ -78,11 +78,10 @@ public class NematodeVisualiser extends PApplet
 
 		float off = 75;
 		float circles = nematodes.get(scroll).length;
-
+		stroke(random(0, 255));
 		for (int i = 0; i < circles; i++)
 		{
 			strokeWeight(5);
-			stroke(255);
 			noFill();
 
 			circle(400, (height / 5f) + off*i, 75);
